@@ -1,38 +1,62 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { MdOutlineRestaurantMenu } from "react-icons/md";
-import { useState } from "react";
+import gsap from "gsap";
 
 import images from "../../constants/images";
 import "./Navbar.css";
 
 const Navbar = () => {
+  const navRef = useRef(null);
+  const linksRef = useRef([]);
   const [toggleMenu, setToggleMenu] = useState(false);
 
+  useEffect(() => {
+    const navElement = navRef.current;
+    const linksElements = linksRef.current;
+
+    gsap.from(navElement, {
+      duration: 1,
+      opacity: 0,
+      y: -50,
+      ease: "power2.inOut",
+    });
+
+    gsap.from(linksElements, {
+      duration: 1,
+      opacity: 0,
+      y: -50,
+      ease: "power2.inOut",
+      stagger: 0.2,
+    });
+  }, []);
+
   return (
-    <nav className="app__navbar">
+    <nav className="app__navbar" ref={navRef}>
       <div className="app__navbar-logo">
-        <img src={images.gericht} alt="app logo" />
+        <a href="/">
+          <img src={images.gericht} alt="app logo" />
+        </a>
       </div>
       <ul className="app__navbar-links">
-        <li className="p__opensans">
+        <li className="p__opensans" ref={(el) => (linksRef.current[0] = el)}>
           <a href="#Home">Home</a>
         </li>
-        <li className="p__opensans">
+        <li className="p__opensans" ref={(el) => (linksRef.current[1] = el)}>
           <a href="#About">About</a>
         </li>
-        <li className="p__opensans">
+        <li className="p__opensans" ref={(el) => (linksRef.current[2] = el)}>
           <a href="#Menu">Menu</a>
         </li>
-        <li className="p__opensans">
+        <li className="p__opensans" ref={(el) => (linksRef.current[3] = el)}>
           <a href="#Awards">Awards</a>
         </li>
-        <li className="p__opensans">
+        <li className="p__opensans" ref={(el) => (linksRef.current[4] = el)}>
           <a href="#Contacts">Contacts</a>
         </li>
       </ul>
       <div className="app__navbar-login">
-        <a href="#" className="p__opensans">
+        <a href="#Login" className="p__opensans">
           Log In/Register
         </a>
         <div />
