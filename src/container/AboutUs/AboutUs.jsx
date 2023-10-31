@@ -12,7 +12,7 @@ const AboutUs = () => {
     const rotateImage = () => {
       gsap.to(imageElement, {
         rotation: "+=360",
-        duration: 2,
+        duration: 3,
         ease: "linear",
       });
     };

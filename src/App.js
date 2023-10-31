@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   AboutUs,
   Chef,
@@ -10,12 +9,14 @@ import {
   Intro,
   Laurels,
   SpecialMenu,
+  IntroAnim,
 } from "./container";
 import { Navbar } from "./components";
 import "./App.css";
 
 const App = () => (
   <div>
+    <IntroAnim />
     <Navbar />
     <Header />
     <AboutUs />
