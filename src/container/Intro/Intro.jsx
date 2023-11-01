@@ -27,6 +27,7 @@ const Intro = () => {
         ref={vidRef}
         type="video/mp4"
         loop
+        playsInline
         controls={false}
         muted
         preload="auto"
