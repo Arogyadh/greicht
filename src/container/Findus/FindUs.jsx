@@ -31,7 +31,7 @@ const FindUs = () => (
       </button>
     </div>
     <div className="app__wrapper_img">
-      <img src={images.findus} alt="findus_img" />
+      <img loading="lazy" src={images.findus} alt="findus_img" />
     </div>
   </div>
 );

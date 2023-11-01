@@ -53,6 +53,7 @@ const Gallery = () => {
               key={`gallery_image-${index + 1}`}
             >
               <img
+                loading="lazy"
                 src={image}
                 alt="Variety of dishes at a restaurant, including eggs and other delicacies"
               />
